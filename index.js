@@ -7,6 +7,10 @@ const authRoutes = require('./routes/auth');
 dotenv.config();
 
 const app = express();
+// Aumenta o limite para 50mb (ou o tamanho que você precisar)
+app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ limit: '50mb', extended: true }));
+
 app.use(cors());
 app.use(express.json());
 
